@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alanna Labian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
+<style>
+  /* ============================================================
+     1. DESIGN TOKENS
+     Change these and the whole page follows.
+     Layout: one narrow centered column, dates in a left rail.
+     ============================================================ */
+  :root {
+    --bg:      #fcfcfd;  /* page background */
+    --text:    #16191f;  /* main text */
+    --muted:   #636b78;  /* secondary text (dates, places) */
+    --line:    #e6e8ec;  /* thin dividers */
+    --accent:  #2f5d8a;  /* links + small highlights */
+
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    --size-name: 2rem;
+    --size-h2:   0.75rem;
+    --size-body: 0.975rem;
+    --size-small: 0.875rem;
+
+    --page-width: 640px;
+    --gap-section: 3.5rem;
+    --rail: 9.5rem;      /* width of the date column */
+
+    color-scheme: light;
+  }
+
+  /* ============================================================
+     2. BASE
+     ============================================================ */
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: var(--size-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding-block: 5rem 4rem;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-section);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  p { margin: 0; }
+
+  /* ============================================================
+     3. HEADER
+     ============================================================ */
+  header { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  h1 {
+    margin: 0;
+    font-size: var(--size-name);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .tagline { color: var(--muted); }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: var(--size-small);
+  }
+
+  /* ============================================================
+     4. SECTIONS
+     ============================================================ */
+  section { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  h2 {
+    margin: 0;
+    font-size: var(--size-h2);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .about { max-width: 60ch; }
+
+  /* A list of entries: date on the left, details on the right */
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: var(--rail) 1fr;
+    gap: 0.25rem 1.5rem;
+  }
+
+  .when {
+    color: var(--muted);
+    font-size: var(--size-small);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.1rem;
+  }
+
+  .what { min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; }
+  .role { font-weight: 500; }
+  .org  { color: var(--muted); font-size: var(--size-small); }
+  .note { margin-top: 0.35rem; font-size: var(--size-small); max-width: 58ch; }
+
+  /* ============================================================
+     5. FOOTER
+     ============================================================ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    color: var(--muted);
+    font-size: var(--size-small);
+  }
+
+  /* ============================================================
+     6. PHONES: stack the date above the details
+     ============================================================ */
+  @media (max-width: 560px) {
+    .page { padding-block: 3rem; }
+    .entry { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Alanna Labian</h1>
+    <p class="tagline">Applied Mathematics at UC Berkeley. Interested in machine learning, software, and teaching math.</p>
+    <nav class="links">
+      <span>alanna.labian@gmail.com</span>
+      <a href="https://www.linkedin.com/in/alanna-labian" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section>
+    <h2>About</h2>
+    <p class="about">
+      I'm an undergraduate studying Applied Mathematics at Berkeley after earning an associate degree in
+      Computer Science, Mathematics, and Physics. I work mostly in Java, C/C++, Python, and MATLAB.
+      I'm also a mental health advocate and I've spent the last few years tutoring math, CS, and physics.
+    </p>
+  </section>
+
+  <!-- ===== EXPERIENCE =====
+       To add a job: copy one <li class="entry"> ... </li> block and edit it. -->
+  <section>
+    <h2>Experience</h2>
+    <ul class="entries">
+
+      <li class="entry">
+        <span class="when">Sep 2026 – Now</span>
+        <div class="what">
+          <span class="role">Machine Learning Committee Member</span>
+          <span class="org">Women in Computing and Data Science at Berkeley</span>
+          <p class="note">Weekly ML fundamentals training, building toward an end-of-semester ML project.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">Feb 2025 – Mar 2026</span>
+        <div class="what">
+          <span class="role">NASA HASP Software Engineer</span>
+          <span class="org">College of the Canyons Aerospace and Science Team</span>
+          <p class="note">Developed packet headers for serial downlink communication and defined the uplink command structure for flight payload operations.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">Feb – Jun 2026</span>
+        <div class="what">
+          <span class="role">Cybersecurity Intern</span>
+          <span class="org">College of the Canyons</span>
+          <p class="note">Researched threat actors and real-world incidents, mapped attacker TTPs to the Cyber Kill Chain, and trained for ISC2 certification.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">Sep 2025 – Jun 2026</span>
+        <div class="what">
+          <span class="role">Chapter President</span>
+          <span class="org">Active Minds, College of the Canyons</span>
+          <p class="note">Revived the club from zero to about 45 active members and ran 9 campus-wide events and 4 club collaborations.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">Jun 2025 – Jun 2026</span>
+        <div class="what">
+          <span class="role">CS, Math &amp; Physics Tutor</span>
+          <span class="org">MESA Program</span>
+          <p class="note">One-on-one tutoring for college-level math, computer science, and physics. Also tutored Algebra 2, Trig, and College Algebra privately.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section>
+    <h2>Education</h2>
+    <ul class="entries">
+      <li class="entry">
+        <span class="when">2026 – 2028</span>
+        <div class="what">
+          <span class="role">B.A. Applied Mathematics</span>
+          <span class="org">University of California, Berkeley</span>
+        </div>
+      </li>
+      <li class="entry">
+        <span class="when">2023 – 2026</span>
+        <div class="what">
+          <span class="role">A.S. Computer Science, Mathematics, Physics</span>
+          <span class="org">College of the Canyons</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    Berkeley, California
+  </footer>
+
+</main>
+</body>
+</html>
